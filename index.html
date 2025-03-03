@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Machine</title>
+    <script>
+        const quoteBank = [
+            { quote: "Knowledge speaks, but wisdom listens.", author: "Jimi Hendrix" },
+            { quote: "All your life, you will be faced with a choice. You can choose love or hate…I choose love", author: "Johnny Cash" },
+            { quote: "Don't never follow your first mind, cause that's the one that's wrong.", author: "Son House" },
+            { quote: "Be yourself; everyone else is already taken.", author: "Oscar Wilde" }
+        ];
+
+        window.onload = function() {
+            generateQuote();
+        };
+
+        function generateQuote() {
+            let randomIndex = Math.floor(Math.random() * quoteBank.length);
+            let randomQuoteData = quoteBank[randomIndex];
+            document.getElementById("text").innerText = `"${randomQuoteData.quote}"`;
+            document.getElementById("author").innerText = `- ${randomQuoteData.author}`;
+        }
+    </script>
+    <style>
+        body {
+            background-color: #2e1e1e;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Quote Box */
+        #quote-box {
+            background: white;
+            color: black;
+            width: 50%;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        #author {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        /* Social Media */
+        .social {
+            background: #3a2b2b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+        }
+
+        .social img {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+    <div id="quote-box">
+        <div id="text"></div>
+        <div id="author"></div>
+
+        <div class="buttons">
+            <button id="new-quote" class="btn" onClick="generateQuote();">New Quote</button>
+            <a href="twitter.com/intent/tweet" id="tweet-quote" class="btn">Tweet</a>
+        </div>
+    </div>
+</body>
+</html>
